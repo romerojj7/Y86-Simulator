@@ -1,0 +1,52 @@
+        .pos 0
+        irmovq list, %rsp
+        nop
+        nop
+        nop
+        popq   %rax
+        nop
+        nop
+        nop
+        popq   %rbx
+        nop
+        nop
+        nop
+        popq   %rcx
+        nop
+        nop
+        nop
+        popq   %rdx
+        irmovq lcopy, %rsp
+        nop
+        nop
+        nop
+        pushq  %rdx
+        nop
+        nop
+        nop
+        pushq  %rcx
+        nop
+        nop
+        nop
+        pushq  %rbx
+        nop
+        nop
+        nop
+        pushq  %rax
+        halt
+        nop
+        nop
+        nop
+
+        .align 8
+list:   
+        .quad 12
+        .quad 7
+        .quad -5 
+        .quad 3
+       
+        .quad 0
+        .quad 0
+        .quad 0
+        .quad 0
+lcopy:  .quad 0 

@@ -1,0 +1,89 @@
+                            | #
+                            | #    This file tests the call and return instructions
+                            | #    by calling a recursive maxTree function. The maxTree
+                            | #    function finds the maximum value in a binary tree.
+                            | #
+                            | #    Don't change this code
+0x000:                      |         .pos 0
+0x000: 30f40004000000000000 |         irmovq Stack, %rsp
+0x00a: 30f50004000000000000 |         irmovq Stack, %rbp
+0x014: 701d00000000000000   |         jmp Main
+                            | #
+                            | #    Don't change this code
+0x01d: 30f18000000000000000 | Main:   irmovq root, %rcx               # root of binary tree
+0x027: a01f                 |         pushq %rcx
+0x029: 803300000000000000   |         call maxTree                    # gets max of tree; result in %rax
+0x032: 00                   |         halt
+                            | #
+                            | #       int maxTree(Tree * treeptr)
+                            | #       {
+                            | #          if (treeptr == NULL)
+                            | #              return 0;
+                            | #          else if (treeptr->right == NULL)
+                            | #              return treeptr->value
+                            | #          else
+                            | #              return maxTree(treeptr->right)
+                            | #
+                            | #       }
+                            | #
+                            | #    Your work goes here
+0x033:                      | maxTree: #this function is missing
+0x033: 6211                 |          andq %rcx, %rcx
+0x035: 744a00000000000000   |          jne notnull
+0x03e: 30f00000000000000000 |          irmovq 0, %rax
+0x048: 90                   |          ret
+0x049: 10                   |          nop
+0x04a:                      | notnull: 
+0x04a: 10                   |          nop
+0x04b: 10                   |          nop
+0x04c: 50010800000000000000 |          mrmovq 8(%rcx), %rax
+0x056: 10                   |          nop
+0x057: 6200                 |          andq %rax, %rax
+0x059: 736d00000000000000   |          je end
+0x062: 2001                 |          rrmovq %rax, %rcx
+0x064: 803300000000000000   |          call maxTree
+0x06d:                      | end:
+0x06d: 10                   |          nop
+0x06e: 10                   |          nop
+0x06f: 50011000000000000000 |          mrmovq 16(%rcx), %rax        
+0x079: 90                   |          ret
+0x07a: 10                   |          nop				#needed until stalls/bubbles implemented
+0x07b: 10                   |          nop				#needed until stalls/bubbles implemented
+0x07c: 10                   |          nop				#needed until stalls/bubbles implemented
+                            | 
+                            | #    Don't change this code
+0x080:                      |  .align	8
+0x080: 9800000000000000     | root:    .quad t1         #pointer to left node
+0x088: e000000000000000     |          .quad t2         #pointer to right node
+0x090: 1200000000000000     |          .quad 0x12       #value of node
+                            | 
+0x098: b000000000000000     | t1:      .quad t3 
+0x0a0: c800000000000000     |          .quad t4
+0x0a8: 0600000000000000     |          .quad 0x6
+                            | 
+0x0b0: 0000000000000000     | t3:      .quad 0 
+0x0b8: 0000000000000000     |          .quad 0
+0x0c0: 0300000000000000     |          .quad 0x3
+                            | 
+0x0c8: 0000000000000000     | t4:      .quad 0 
+0x0d0: 0000000000000000     |          .quad 0
+0x0d8: 0800000000000000     |          .quad 0x8
+                            | 
+0x0e0: f800000000000000     | t2:      .quad t5
+0x0e8: 1001000000000000     |          .quad t6
+0x0f0: 2000000000000000     |          .quad 0x20
+                            | 
+0x0f8: 0000000000000000     | t5:      .quad 0
+0x100: 0000000000000000     |          .quad 0
+0x108: 1600000000000000     |          .quad 0x16
+                            | 
+0x110: 0000000000000000     | t6:      .quad 0
+0x118: 2801000000000000     |          .quad t7
+0x120: 2200000000000000     |          .quad 0x22
+                            | 
+0x128: 0000000000000000     | t7:      .quad 0
+0x130: 0000000000000000     |          .quad 0
+0x138: 2400000000000000     |          .quad 0x24
+                            | 
+0x400:                      |          .pos 0x400
+0x400:                      | Stack:

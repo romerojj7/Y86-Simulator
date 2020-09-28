@@ -1,0 +1,52 @@
+0x000:                      |     .pos 0
+0x000: 30f20500000000000000 |     irmovq $5, %rdx
+0x00a: 10                   |     nop
+0x00b: 10                   |     nop
+0x00c: 10                   |     nop
+                            |     #forward e_valE for valA
+0x00d: 30f10300000000000000 |     irmovq $3, %rcx
+0x017: 6112                 |     subq %rcx, %rdx
+                            |     #forward e_valE for valB
+0x019: 30f00800000000000000 |     irmovq $8, %rax
+0x023: 6020                 |     addq %rdx, %rax
+                            |     #forward M_valE for valA
+0x025: 30f10700000000000000 |     irmovq $7, %rcx
+0x02f: 10                   |     nop
+0x030: 6213                 |     andq %rcx, %rbx
+                            |     #forward M_valE for valB
+0x032: 30f80100000000000000 |     irmovq $1, %r8
+0x03c: 10                   |     nop
+0x03d: 6338                 |     xorq %rbx, %r8
+                            |     #forward M_valM for valA
+0x03f: 50180000000000000000 |     mrmovq (%r8), %rcx
+0x049: 10                   |     nop
+0x04a: 6110                 |     subq %rcx, %rax
+                            |     #forward M_valM for valB
+0x04c: 50780200000000000000 |     mrmovq 2(%r8), %rdi
+0x056: 10                   |     nop
+0x057: 6017                 |     addq %rcx, %rdi
+                            |     #forward W_valE for valA
+0x059: 30f1f8ffffffffffffff |     irmovq $-8, %rcx
+0x063: 10                   |     nop
+0x064: 10                   |     nop
+0x065: 6017                 |     addq %rcx, %rdi
+                            |     #forward W_valE for valB
+0x067: 30fa0900000000000000 |     irmovq $9, %r10
+0x071: 10                   |     nop
+0x072: 10                   |     nop
+0x073: 607a                 |     addq %rdi, %r10
+                            |     #forward W_valM for valA
+0x075: 501a0000000000000000 |     mrmovq (%r10), %rcx
+0x07f: 10                   |     nop
+0x080: 10                   |     nop
+0x081: 611a                 |     subq %rcx, %r10
+                            |     #forward W_valM for valB
+0x083: 50b70000000000000000 |     mrmovq (%rdi), %r11
+0x08d: 10                   |     nop
+0x08e: 10                   |     nop
+0x08f: 60ab                 |     addq %r10, %r11
+0x091: 00                   |     halt
+0x092: 10                   |     nop
+0x093: 10                   |     nop
+0x094: 10                   |     nop
+                            | 

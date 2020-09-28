@@ -1,0 +1,89 @@
+#
+#    This file tests the call and return instructions
+#    by calling a recursive maxTree function. The maxTree
+#    function finds the maximum value in a binary tree.
+#
+#    Don't change this code
+        .pos 0
+        irmovq Stack, %rsp
+        irmovq Stack, %rbp
+        jmp Main
+#
+#    Don't change this code
+Main:   irmovq root, %rcx               # root of binary tree
+        pushq %rcx
+        call maxTree                    # gets max of tree; result in %rax
+        halt
+#
+#       int maxTree(Tree * treeptr)
+#       {
+#          if (treeptr == NULL)
+#              return 0;
+#          else if (treeptr->right == NULL)
+#              return treeptr->value
+#          else
+#              return maxTree(treeptr->right)
+#
+#       }
+#
+#    Your work goes here
+maxTree: #this function is missing
+         andq %rcx, %rcx
+         jne notnull
+         irmovq 0, %rax
+         ret
+         nop
+notnull: 
+         nop
+         nop
+         mrmovq 8(%rcx), %rax
+         nop
+         andq %rax, %rax
+         je end
+         rrmovq %rax, %rcx
+         call maxTree
+end:
+         nop
+         nop
+         mrmovq 16(%rcx), %rax        
+         ret
+         nop				#needed until stalls/bubbles implemented
+         nop				#needed until stalls/bubbles implemented
+         nop				#needed until stalls/bubbles implemented
+
+#    Don't change this code
+ .align	8
+root:    .quad t1         #pointer to left node
+         .quad t2         #pointer to right node
+         .quad 0x12       #value of node
+
+t1:      .quad t3 
+         .quad t4
+         .quad 0x6
+
+t3:      .quad 0 
+         .quad 0
+         .quad 0x3
+
+t4:      .quad 0 
+         .quad 0
+         .quad 0x8
+
+t2:      .quad t5
+         .quad t6
+         .quad 0x20
+
+t5:      .quad 0
+         .quad 0
+         .quad 0x16
+
+t6:      .quad 0
+         .quad t7
+         .quad 0x22
+
+t7:      .quad 0
+         .quad 0
+         .quad 0x24
+
+         .pos 0x400
+Stack:

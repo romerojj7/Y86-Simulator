@@ -1,0 +1,52 @@
+0x000:                      |         .pos 0
+0x000: 30f69800000000000000 |         irmovq list, %rsi
+0x00a: 30f2b800000000000000 |         irmovq lcopy, %rdx
+0x014: 30f00800000000000000 |         irmovq 8, %rax
+0x01e: 10                   |         nop
+0x01f: 50360000000000000000 |         mrmovq (%rsi), %rbx
+0x029: 10                   |         nop
+0x02a: 10                   |         nop
+0x02b: 10                   |         nop
+0x02c: 40320000000000000000 |         rmmovq %rbx, (%rdx)
+0x036: 6006                 |         addq   %rax, %rsi
+0x038: 6002                 |         addq   %rax, %rdx
+0x03a: 10                   |         nop
+0x03b: 10                   |         nop
+0x03c: 50360000000000000000 |         mrmovq (%rsi), %rbx
+0x046: 10                   |         nop
+0x047: 10                   |         nop
+0x048: 10                   |         nop
+0x049: 40320000000000000000 |         rmmovq %rbx, (%rdx)
+0x053: 6006                 |         addq   %rax, %rsi
+0x055: 6002                 |         addq   %rax, %rdx
+0x057: 10                   |         nop
+0x058: 10                   |         nop
+0x059: 50360000000000000000 |         mrmovq (%rsi), %rbx
+0x063: 10                   |         nop
+0x064: 10                   |         nop
+0x065: 10                   |         nop
+0x066: 40320000000000000000 |         rmmovq %rbx, (%rdx)
+0x070: 6006                 |         addq   %rax, %rsi
+0x072: 6002                 |         addq   %rax, %rdx
+0x074: 10                   |         nop
+0x075: 10                   |         nop
+0x076: 50360000000000000000 |         mrmovq (%rsi), %rbx
+0x080: 10                   |         nop
+0x081: 10                   |         nop
+0x082: 10                   |         nop
+0x083: 40320000000000000000 |         rmmovq %rbx, (%rdx)
+0x08d: 00                   |         halt
+0x08e: 10                   |         nop
+0x08f: 10                   |         nop
+0x090: 10                   |         nop
+                            | 
+0x098:                      |         .align 8
+0x098: 0400000000000000     | list:   .quad 4
+0x0a0: 2000000000000000     |         .quad 32
+0x0a8: 0500000000000000     |         .quad 5 
+0x0b0: fcffffffffffffff     |         .quad -4
+                            |        
+0x0b8: 0000000000000000     | lcopy:  .quad 0
+0x0c0: 0000000000000000     |         .quad 0 
+0x0c8: 0000000000000000     |         .quad 0
+0x0d0: 0000000000000000     |         .quad 0

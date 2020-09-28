@@ -1,0 +1,52 @@
+    .pos 0
+    irmovq $5, %rdx
+    nop
+    nop
+    nop
+    #forward e_valE for valA
+    irmovq $3, %rcx
+    subq %rcx, %rdx
+    #forward e_valE for valB
+    irmovq $8, %rax
+    addq %rdx, %rax
+    #forward M_valE for valA
+    irmovq $7, %rcx
+    nop
+    andq %rcx, %rbx
+    #forward M_valE for valB
+    irmovq $1, %r8
+    nop
+    xorq %rbx, %r8
+    #forward M_valM for valA
+    mrmovq (%r8), %rcx
+    nop
+    subq %rcx, %rax
+    #forward M_valM for valB
+    mrmovq 2(%r8), %rdi
+    nop
+    addq %rcx, %rdi
+    #forward W_valE for valA
+    irmovq $-8, %rcx
+    nop
+    nop
+    addq %rcx, %rdi
+    #forward W_valE for valB
+    irmovq $9, %r10
+    nop
+    nop
+    addq %rdi, %r10
+    #forward W_valM for valA
+    mrmovq (%r10), %rcx
+    nop
+    nop
+    subq %rcx, %r10
+    #forward W_valM for valB
+    mrmovq (%rdi), %r11
+    nop
+    nop
+    addq %r10, %r11
+    halt
+    nop
+    nop
+    nop
+

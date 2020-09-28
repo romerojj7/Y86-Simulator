@@ -1,0 +1,52 @@
+0x000:                      |         .pos 0
+0x000: 30f44000000000000000 |         irmovq list, %rsp
+0x00a: 10                   |         nop
+0x00b: 10                   |         nop
+0x00c: 10                   |         nop
+0x00d: b00f                 |         popq   %rax
+0x00f: 10                   |         nop
+0x010: 10                   |         nop
+0x011: 10                   |         nop
+0x012: b03f                 |         popq   %rbx
+0x014: 10                   |         nop
+0x015: 10                   |         nop
+0x016: 10                   |         nop
+0x017: b01f                 |         popq   %rcx
+0x019: 10                   |         nop
+0x01a: 10                   |         nop
+0x01b: 10                   |         nop
+0x01c: b02f                 |         popq   %rdx
+0x01e: 30f48000000000000000 |         irmovq lcopy, %rsp
+0x028: 10                   |         nop
+0x029: 10                   |         nop
+0x02a: 10                   |         nop
+0x02b: a02f                 |         pushq  %rdx
+0x02d: 10                   |         nop
+0x02e: 10                   |         nop
+0x02f: 10                   |         nop
+0x030: a01f                 |         pushq  %rcx
+0x032: 10                   |         nop
+0x033: 10                   |         nop
+0x034: 10                   |         nop
+0x035: a03f                 |         pushq  %rbx
+0x037: 10                   |         nop
+0x038: 10                   |         nop
+0x039: 10                   |         nop
+0x03a: a00f                 |         pushq  %rax
+0x03c: 00                   |         halt
+0x03d: 10                   |         nop
+0x03e: 10                   |         nop
+0x03f: 10                   |         nop
+                            | 
+0x040:                      |         .align 8
+0x040:                      | list:   
+0x040: 0c00000000000000     |         .quad 12
+0x048: 0700000000000000     |         .quad 7
+0x050: fbffffffffffffff     |         .quad -5 
+0x058: 0300000000000000     |         .quad 3
+                            |        
+0x060: 0000000000000000     |         .quad 0
+0x068: 0000000000000000     |         .quad 0
+0x070: 0000000000000000     |         .quad 0
+0x078: 0000000000000000     |         .quad 0
+0x080: 0000000000000000     | lcopy:  .quad 0 
